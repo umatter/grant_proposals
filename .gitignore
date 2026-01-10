@@ -1,0 +1,49 @@
+# Old/archived proposals (contains sensitive historical data)
+_resources/old_proposals/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Editor/IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.settings/
+
+# Temporary and draft files
+*.tmp
+*.temp
+*.bak
+drafts/
+*.draft.*
+
+# Sensitive/personal files
+.env
+.env.local
+*.credentials
+secrets/
+
+# Output drafts (keep only final versions in outputs/)
+outputs/*.draft.*
+outputs/wip/
+
+# Python (if using scripts)
+__pycache__/
+*.py[cod]
+.pytest_cache/
+venv/
+.venv/
+
+# Logs
+*.log
+logs/
+
+# Dropbox conflict files
+*conflicted copy*

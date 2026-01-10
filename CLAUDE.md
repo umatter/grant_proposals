@@ -6,9 +6,11 @@ This repository contains agentic workflows for drafting grant proposals. Each wo
 
 ## Available Workflows
 
-| Command | Funding Program | Skill |
-|---------|-----------------|-------|
-| `/innocheck` | Innosuisse Innovationsscheck | `innocheck-guidelines` |
+| Command | Funding Program | Skill | Output Format |
+|---------|-----------------|-------|---------------|
+| `/innocheck` | Innosuisse Innovationsscheck | `innocheck-guidelines` | Markdown/Word |
+| `/innosuisse-project` | Innosuisse Innovation Project | `innosuisse-project-guidelines` | Markdown |
+| `/snsf-project` | SNSF Project Funding | `snsf-guidelines` | LaTeX |
 
 ## Project Structure
 
@@ -30,17 +32,78 @@ When generating proposals:
 
 ## Subagents
 
-Shared subagents that can be used across workflows:
-
+### General Purpose (Innocheck)
 - **innovation-analyst** - Assesses novelty, feasibility, and scientific merit
 - **market-researcher** - Analyzes competition and market potential
 - **financial-planner** - Validates budgets and funding compliance
 
+### SNSF-Specific
+- **scientific-relevance** - Evaluates significance, originality, and impact
+- **methodology-analyst** - Evaluates methods, feasibility, and risks
+- **track-record-analyst** - Generates CV achievements and Section 2.2
+- **literature-builder** - Builds state-of-research context and bibliography
+- **snsf-budget-planner** - Validates budget against SNSF rules
+
+### Innosuisse Innovation Project-Specific
+- **project-planner** - Designs work packages, Gantt charts, milestones, deliverables
+- **risk-analyst** - Creates risk matrices with mitigation strategies
+- **innosuisse-budget-planner** - Validates 40-60% split and notional rates
+
+## Innosuisse Innovation Project Quick Reference
+
+| Parameter | Value |
+|-----------|-------|
+| Funding | Innosuisse 40-60%, Partner 40-60% |
+| Cash Contribution | Min 5-10% of Innosuisse funding |
+| Duration | 6-36 months (typical: 18-24) |
+| Budget | No max (typical CHF 500K-2M) |
+| Submission | Innolink, 6 weeks before meeting |
+| Decision Meetings | 8 per year |
+
+**Notional Hourly Rates (Research Partner):**
+
+| Position | Rate (CHF/hr) |
+|----------|---------------|
+| Full Professor | 160-180 |
+| Associate Professor | 140-160 |
+| Senior Researcher/Postdoc | 110-130 |
+| PhD Student | 70-90 |
+| Research Assistant | 60-80 |
+
+**Key Evaluation Criteria:**
+1. Level of Innovation - Scientific AND economic novelty
+2. Value Creation - Benefit for Swiss economy/society
+3. Project Quality - Realistic planning, competent team
+4. Sustainable Development - Environmental/social contribution
+
+## SNSF Project Funding Quick Reference
+
+| Parameter | Value |
+|-----------|-------|
+| Funding Range | CHF 100,000 - 4,000,000 |
+| Duration | 1-4 years |
+| Per Applicant/Year | Max CHF 250,000 average |
+| Per Project/Year | Max CHF 1,000,000 |
+| Equipment Cap | CHF 100,000 |
+| Research Plan | 15 pages / 60,000 chars |
+| CV Achievements | Max 4,350 characters |
+| Deadlines | 1 April, 1 October (17:00) |
+
+**Key Evaluation Criteria** (by weight):
+1. Methods & Feasibility (highest)
+2. Scientific Relevance
+3. Originality
+4. Track Record
+5. Topicality
+
 ## Language
 
 Proposals may be generated in multiple languages depending on the funding program.
-Default to the language of the input documents.
-If unclear, ask the user for preference.
+- **SNSF**: English required for economics, STEM, medicine, psychology
+- **Innosuisse**: German, French, Italian, or English
+- **Innocheck**: German, French, Italian, or English
+
+Default to the language of the input documents. If unclear, ask the user for preference.
 
 ## Quality Standards
 
@@ -50,3 +113,8 @@ All proposals must:
 - Have realistic, justified budgets
 - Define concrete, measurable deliverables
 - Follow the structure required by the funding body
+
+## Reference Materials
+
+Successful proposal examples are available in:
+- `_resources/old_proposals/snsf_project/` - Two funded SNSF proposals

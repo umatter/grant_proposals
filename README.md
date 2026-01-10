@@ -8,9 +8,22 @@ This repository contains Claude Code workflows that assist in creating comprehen
 
 ## Available Workflows
 
-| Workflow | Command | Funding Program |
-|----------|---------|-----------------|
-| [Innocheck](#innocheck) | `/innocheck` | Innosuisse Innovationsscheck (Switzerland) |
+| Workflow | Command | Funding Program | Output |
+|----------|---------|-----------------|--------|
+| [Innocheck](docs/innocheck.md) | `/innocheck` | Innosuisse Innovationsscheck | Markdown/Word |
+| [Innosuisse Project](docs/innosuisse-project.md) | `/innosuisse-project` | Innosuisse Innovation Project | Markdown |
+| [SNSF Project](docs/snsf-project.md) | `/snsf-project` | SNSF Project Funding | LaTeX |
+
+## Quick Comparison
+
+| Aspect | Innocheck | Innosuisse Project | SNSF Project |
+|--------|-----------|-------------------|--------------|
+| **Budget** | CHF 15,000 (fixed) | No max (typ. 500K-2M) | CHF 100K-4M |
+| **Duration** | 6 months | 6-36 months | 1-4 years |
+| **Funding Rate** | 100% | 40-60% | 100% |
+| **Focus** | Feasibility study | Innovation + Value creation | Scientific research |
+| **Partners** | Research + Implementation | Research + Implementation | Academic |
+| **Complexity** | Simple | Medium-High | High |
 
 ## General Usage
 
@@ -21,6 +34,7 @@ Place your context documents in the `inputs/` directory. Required documents vary
 - **Research goal**: Innovation idea, scientific approach, expected outcomes
 - **Partner information**: Implementation and research partner details
 - **Budget data**: Personnel and material cost estimates
+- **Team CVs**: Key personnel qualifications
 
 ### 2. Run a Workflow
 
@@ -33,7 +47,7 @@ claude
 
 ### 3. Review Outputs
 
-Generated proposals appear in `outputs/`.
+Generated proposals appear in `outputs/<workflow-name>/`.
 
 ## Repository Structure
 
@@ -43,10 +57,14 @@ grant_proposals/
 │   ├── commands/           # Slash commands for each workflow
 │   ├── agents/             # Specialized subagents
 │   └── skills/             # Domain-specific guidelines and templates
+├── docs/                   # Detailed workflow documentation
 ├── CLAUDE.md               # Project configuration
 ├── inputs/                 # Your context documents
 ├── outputs/                # Generated proposals
-└── _resources/             # Implementation plans and documentation
+│   ├── innocheck/
+│   ├── innosuisse_project/
+│   └── snsf_project/
+└── _resources/             # Implementation plans and reference materials
 ```
 
 ## Workflow Architecture
@@ -70,8 +88,8 @@ Each workflow follows a similar pattern:
         ┌───────────────────────┼───────────────────────┐
         ▼                       ▼                       ▼
 ┌───────────────┐     ┌───────────────┐     ┌───────────────┐
-│  SUBAGENT 1   │     │  SUBAGENT 2   │     │  SUBAGENT 3   │
-│  (Analysis)   │     │  (Research)   │     │  (Validation) │
+│  SUBAGENT 1   │     │  SUBAGENT 2   │     │  SUBAGENT N   │
+│  (parallel)   │     │  (parallel)   │     │  (parallel)   │
 └───────────────┘     └───────────────┘     └───────────────┘
                                 │
                                 ▼
@@ -80,49 +98,42 @@ Each workflow follows a similar pattern:
                     └─────────────────┘
 ```
 
----
+## Subagents
 
-## Innocheck
+### Shared (Reusable)
+| Subagent | Purpose |
+|----------|---------|
+| `innovation-analyst` | Assess novelty, feasibility, scientific merit |
+| `market-researcher` | Analyze competition and market potential |
+| `methodology-analyst` | Evaluate methods, feasibility, risks |
 
-Workflow for Innosuisse Innovationsscheck proposals (Swiss innovation funding).
+### Innocheck-Specific
+| Subagent | Purpose |
+|----------|---------|
+| `financial-planner` | Validate CHF 15K budget compliance |
 
-### Quick Facts
+### Innosuisse Project-Specific
+| Subagent | Purpose |
+|----------|---------|
+| `project-planner` | Design work packages, Gantt charts, milestones |
+| `risk-analyst` | Create risk matrices with mitigation strategies |
+| `innosuisse-budget-planner` | Validate 40-60% split, notional rates |
 
-| Aspect | Details |
-|--------|---------|
-| **Funding** | Up to CHF 15,000 (100% of research partner costs) |
-| **Eligibility** | SMEs, startups, organizations with <250 FTEs, Swiss UID |
-| **Purpose** | Preliminary study: concept development, feasibility analysis |
-| **Duration** | 6 months to complete the study |
+### SNSF-Specific
+| Subagent | Purpose |
+|----------|---------|
+| `scientific-relevance` | Evaluate significance, originality, impact |
+| `track-record-analyst` | Generate CV achievements narrative |
+| `literature-builder` | Build state-of-research and bibliography |
+| `snsf-budget-planner` | Validate budget against SNSF limits |
 
-### Usage
+## Documentation
 
-```bash
-/innocheck inputs/research_goal.md inputs/partner_info.md inputs/budget.xlsx
-```
+Detailed documentation for each workflow is available in the `docs/` folder:
 
-### Subagents
-
-- **Innovation Analyst** - Assesses novelty and technical feasibility
-- **Market Researcher** - Analyzes competition and market potential
-- **Financial Planner** - Validates budget compliance with Innosuisse rules
-
-### Evaluation Criteria
-
-The workflow ensures all five Innosuisse criteria are addressed:
-
-1. **Innovation Level** - Scientific and economic novelty
-2. **Potential Benefit** - Value for implementation partner
-3. **Partner Competencies** - Execution and commercialization capabilities
-4. **Financial Plan** - Realistic personnel and material costs
-5. **Follow-up Project** - Path to subsequent innovation project
-
-### Resources
-
-- [Innosuisse Official Website](https://www.innosuisse.ch)
-- Implementation plan: `_resources/innocheck-workflow-implementation-plan.md`
-
----
+- [Innocheck Workflow](docs/innocheck.md) - Feasibility studies (CHF 15K)
+- [Innosuisse Innovation Project](docs/innosuisse-project.md) - Full R&D projects (CHF 500K-2M)
+- [SNSF Project Funding](docs/snsf-project.md) - Scientific research (CHF 100K-4M)
 
 ## Adding New Workflows
 
@@ -131,39 +142,21 @@ To add a workflow for a new grant type:
 1. Create a slash command in `.claude/commands/<grant-name>.md`
 2. Add domain-specific skills in `.claude/skills/<grant-name>-guidelines/`
 3. Create or reuse subagents in `.claude/agents/`
-4. Document the workflow in this README
-
-## Architecture Recommendations
-
-### Shared Components (in `.claude/agents/`)
-
-Subagents should be **generic and reusable** across grant types:
-
-| Subagent | Purpose | Why Shared |
-|----------|---------|------------|
-| `innovation-analyst` | Assess novelty and feasibility | Innovation evaluation is similar across funders |
-| `market-researcher` | Analyze competition and market | Market analysis follows common patterns |
-| `financial-planner` | Validate budgets | Cost structures are comparable; funder-specific rules go in skills |
-
-Add new shared subagents only for **cross-cutting concerns** (e.g., `ethics-reviewer`, `ip-analyst`, `impact-assessor`).
-
-### Grant-Specific Components (in `.claude/skills/` and `.claude/commands/`)
-
-Skills and commands should be **specific to each funding program**:
-
-| Component | Location | Contains |
-|-----------|----------|----------|
-| Slash command | `.claude/commands/<grant>.md` | Orchestration logic, which subagents to call, output format |
-| Skill | `.claude/skills/<grant>-guidelines/` | Evaluation criteria, application structure, templates, common mistakes |
-| References | `.claude/skills/<grant>-guidelines/references/` | Funder-specific rules, eligibility, budget constraints |
-| Templates | `.claude/skills/<grant>-guidelines/templates/` | Proposal and budget templates matching funder requirements |
-
-### Rule of Thumb
-
-- **If it applies to most grants** → put it in a shared subagent
-- **If it's funder-specific** → put it in the grant's skill folder
-- **If you're unsure** → start specific, generalize later when patterns emerge
+4. Document the workflow in `docs/<grant-name>.md`
+5. Update this README
 
 ## Language Support
 
-Workflows support multiple languages where applicable. Output language typically matches the input documents.
+Workflows support multiple languages where applicable:
+
+- **SNSF**: English required for economics, STEM, medicine, psychology
+- **Innosuisse**: German, French, Italian, or English
+- **Innocheck**: German, French, Italian, or English
+
+Output language typically matches the input documents. If unclear, the workflow will ask for preference.
+
+## Resources
+
+- [Innosuisse Official Website](https://www.innosuisse.ch)
+- [SNSF Official Website](https://www.snf.ch)
+- Reference materials: `_resources/`

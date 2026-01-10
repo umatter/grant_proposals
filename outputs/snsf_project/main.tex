@@ -1,0 +1,358 @@
+% SNSF Project Funding - Research Plan Template
+% Based on successful SNSF project proposals
+% Maximum: 15 pages / 60,000 characters (17 pages / 68,000 for collaborative)
+
+\documentclass[english, 11pt]{article}
+
+%% ============================================================
+%% PACKAGES
+%% ============================================================
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{bm}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, verbose, tmargin=1.9cm, bmargin=1.9cm, lmargin=2.5cm, rmargin=2.5cm]{geometry}
+\usepackage{float}
+\usepackage{setspace}
+\usepackage[round]{natbib}
+\usepackage{caption}
+\usepackage{babel}
+\usepackage{lscape}
+\usepackage{mathptmx}  % Times font
+\PassOptionsToPackage{hyphens}{url}
+\usepackage{tocloft}
+\usepackage{xcolor}
+\usepackage{url}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=black,
+    urlcolor=teal,
+    citecolor=teal,
+}
+\usepackage{graphicx}
+\usepackage[labelfont=sc]{subcaption}
+\usepackage[bottom, hang]{footmisc}
+
+%% ============================================================
+%% DOCUMENT SETTINGS
+%% ============================================================
+\setlength\parindent{0pt}
+\onehalfspacing  % 1.5 line spacing (SNSF requirement)
+
+% Rename Bibliography section
+\addto{\captionsenglish}{\renewcommand{\refname}{Bibliography}}
+
+% Prevent orphans and widows
+\clubpenalty=10000
+\widowpenalty=10000
+\displaywidowpenalty=10000
+
+% Footnote formatting
+\setlength{\footnotemargin}{0em}
+
+% Blank footnote command (for author affiliations)
+\makeatletter
+\def\blfootnote{\xdef\@thefnmark{}\@footnotetext}
+\makeatother
+
+%% ============================================================
+%% DOCUMENT START
+%% ============================================================
+\begin{document}
+
+%% ============================================================
+%% TITLE PAGE
+%% ============================================================
+\begin{singlespace}
+\begin{center}
+
+\LARGE{[PROJECT TITLE]}
+
+\bigskip
+
+\Large{Research proposal for a project grant of the\\
+Swiss National Science Foundation}
+
+\bigskip
+\bigskip
+
+\begin{tabular}{c}
+{\Large [Applicant Name]$^{*}$ (PI)} \\
+% Uncomment for collaborative projects:
+% {\Large [Co-Applicant Name]$^{**}$ (Project Partner)} \\
+\\
+\large [Month Year]
+\end{tabular}
+\end{center}
+\end{singlespace}
+
+% Author affiliations as footnotes
+\blfootnote{$^{*}$[Institution], [Department], [Address], [Country]; email: [email@example.com].}
+% Uncomment for additional authors:
+% \blfootnote{$^{**}$[Institution], [Department], [Address], [Country]; email: [email@example.com].}
+
+\vspace{1.5cm}
+
+\setcounter{tocdepth}{2}
+\tableofcontents
+
+\pagebreak
+
+%% ============================================================
+%% SECTION 1: SUMMARY
+%% ============================================================
+\section{Summary of the Research Plan}
+
+[Write a standalone summary (~1 page) covering:
+- Project title and core research question(s)
+- Methodology overview
+- Expected outcomes and impact
+- Why this research matters
+
+TIP: Write this section LAST after completing all other sections.]
+
+\pagebreak
+
+%% ============================================================
+%% SECTION 2: RESEARCH PLAN
+%% ============================================================
+\section{Research Plan}
+
+%% ------------------------------------------------------------
+%% 2.1 STATE OF RESEARCH IN THE FIELD
+%% ------------------------------------------------------------
+\subsection{Current state of research in the field}
+
+[Provide context for your research (2-3 pages):
+- Introduce the general field and its importance
+- Summarize key findings and established approaches
+- Identify research gaps and limitations
+- Position your project within the landscape
+
+Include subsections for different themes if needed:]
+
+\vspace{0.3cm}
+\noindent\textit{[Theme 1: Title]}
+
+[Discussion of first major theme in the literature...]
+
+\vspace{0.3cm}
+\noindent\textit{[Theme 2: Title]}
+
+[Discussion of second major theme...]
+
+\vspace{0.3cm}
+\noindent\textit{[Theme 3: Title]}
+
+[Discussion of third major theme...]
+
+
+%% ------------------------------------------------------------
+%% 2.2 STATE OF OWN RESEARCH
+%% ------------------------------------------------------------
+\subsection{Current state of own research}
+
+[Demonstrate your capability to execute this project (1-2 pages)]
+
+\vspace{0.3cm}
+\noindent\textit{Most closely related previous work}
+
+[Describe your prior work that is most relevant to this proposal. Include:
+- Key publications and their contributions
+- Methods and expertise you've developed
+- How this experience enables the proposed research]
+
+\vspace{0.3cm}
+\noindent\textit{Specific preparatory work}
+
+[Describe preparatory work done for this proposal:
+- Pilot studies or preliminary data
+- Technical infrastructure development
+- Data collection and evaluation
+- Partnerships established]
+
+
+%% ------------------------------------------------------------
+%% 2.3 DETAILED RESEARCH PLAN
+%% ------------------------------------------------------------
+\pagebreak
+\subsection{Detailed research plan}
+
+[Core of the proposal (6-8 pages). Include all subsections below.]
+
+\subsubsection*{General objectives of the proposed research plan}
+
+[State the primary goals and what you aim to achieve. Be specific about:
+- What questions you will answer
+- What contributions you will make
+- What you explicitly will NOT address (scope boundaries)]
+
+
+\subsubsection*{Research team and responsibilities}
+
+[Describe the team composition and roles:
+- Principal Investigator responsibilities
+- Project partners (if collaborative)
+- Research assistants and their tasks
+- External collaborators or consultants]
+
+
+\subsubsection*{Challenges for empirical research}
+
+[Identify key empirical challenges:
+- Measurement challenges
+- Identification challenges
+- Data access challenges
+- Technical challenges
+
+Explain how your approach addresses these challenges.]
+
+
+\subsubsection*{Methods: [Your methodological approach]}
+
+[Detailed methodology section. Structure depends on your field but should include:
+- Conceptual framework
+- Data sources and collection
+- Analytical methods with justification
+- Experimental design (if applicable)
+
+Include figures to illustrate key concepts:]
+
+\vspace{0.3cm}
+
+% Example figure
+% \begin{figure}[htb]
+% \footnotesize
+% \begin{center}
+% \caption{[Figure Title]}
+% \label{fig:methodology}
+% \includegraphics[width=0.7\textwidth]{fig/methodology.pdf}
+% \end{center}
+% \begin{singlespace}
+% \footnotesize{\textit{Notes:} [Figure description and explanation.]}
+% \end{singlespace}
+% \end{figure}
+
+
+\pagebreak
+\subsubsection*{[Experiment/Study 1: Title]}
+
+\vspace{0.3cm}
+\noindent\textit{Context and experimental design}
+
+[Describe the first major component of your research:
+- Research question addressed
+- Hypotheses
+- Experimental/study design
+- Expected sample sizes]
+
+\vspace{0.3cm}
+\noindent\textit{Input data and configuration}
+
+[Describe data requirements:
+- Data sources
+- Data collection procedures
+- Sample selection criteria
+- Quality assurance measures]
+
+\vspace{0.3cm}
+\noindent\textit{Data analysis plan}
+
+[Describe analytical approach:
+- Statistical methods
+- Robustness checks
+- How results will be interpreted]
+
+
+% Repeat structure for additional experiments/studies:
+% \pagebreak
+% \subsubsection*{[Experiment/Study 2: Title]}
+% ...
+
+
+\subsubsection*{Risk assessment and mitigation}
+
+[Identify major risks and mitigation strategies:]
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{|p{3cm}|p{2cm}|p{2cm}|p{4cm}|p{3cm}|}
+\hline
+\textbf{Risk} & \textbf{Probability} & \textbf{Impact} & \textbf{Mitigation} & \textbf{Fallback} \\
+\hline
+[Risk 1] & Medium & High & [Strategy] & [Alternative approach] \\
+\hline
+[Risk 2] & Low & High & [Strategy] & [Alternative approach] \\
+\hline
+[Risk 3] & Medium & Medium & [Strategy] & [Alternative approach] \\
+\hline
+\end{tabular}
+\end{table}
+
+
+%% ------------------------------------------------------------
+%% 2.4 SCHEDULE AND MILESTONES
+%% ------------------------------------------------------------
+\subsection{Schedule and milestones}
+
+[Provide timeline (~1 page) with:
+- Gantt chart or timeline table
+- Key milestones
+- Deliverables
+- Go/no-go decision points]
+
+% Include schedule figure
+% \begin{figure}[h!]
+% \caption{Schedule and milestones}
+% \begin{center}
+% \includegraphics[width=\textwidth]{fig/schedule.pdf}
+% \end{center}
+% \begin{singlespace}
+% \footnotesize{\textit{Notes:} [Explanation of the schedule. Indicate which tasks are led by PI vs research assistants vs developers. Mark major milestones.]}
+% \end{singlespace}
+% \end{figure}
+
+
+%% ------------------------------------------------------------
+%% 2.5 RELEVANCE AND IMPACT
+%% ------------------------------------------------------------
+\subsection{Relevance and impact}
+
+[Articulate significance (1-2 pages):
+- Scientific contribution to the field
+- Broader societal impact
+- Policy implications (if applicable)
+- Methodological contributions
+- Training and educational value]
+
+\vspace{0.3cm}
+\noindent\textit{Dissemination strategy}
+
+[Describe how results will be shared:
+- Conference presentations
+- Working papers
+- Open access policy
+- Data and code sharing]
+
+\vspace{0.3cm}
+\noindent\textit{Publication strategy}
+
+[Target outlets for publications:
+- Primary target journals
+- Alternative venues
+- Timeline for submissions]
+
+
+%% ============================================================
+%% BIBLIOGRAPHY
+%% ============================================================
+\clearpage
+\bibliographystyle{apalike}
+\bibliography{ref}
+
+\end{document}
