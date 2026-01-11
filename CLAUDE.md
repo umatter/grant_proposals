@@ -11,6 +11,7 @@ This repository contains agentic workflows for drafting grant proposals. Each wo
 | `/innocheck` | Innosuisse Innovationsscheck | `innocheck-guidelines` | Markdown/Word |
 | `/innosuisse-project` | Innosuisse Innovation Project | `innosuisse-project-guidelines` | Markdown |
 | `/snsf-project` | SNSF Project Funding | `snsf-guidelines` | LaTeX |
+| `/bfh-elearning` | BFH E-Learning Förderprogramm | `bfh-elearning-guidelines` | Markdown/Word |
 
 ## Project Structure
 
@@ -48,6 +49,10 @@ When generating proposals:
 - **project-planner** - Designs work packages, Gantt charts, milestones, deliverables
 - **risk-analyst** - Creates risk matrices with mitigation strategies
 - **innosuisse-budget-planner** - Validates 40-60% split and notional rates
+
+### BFH E-Learning-Specific
+- **didactic-innovation-analyst** - Assesses all 6 BFH evaluation criteria (strategy, innovation, quality, sustainability, networking, transfer)
+- **bfh-elearning-planner** - Creates project plans and validates budgets with BFH hourly rates
 
 ## Innosuisse Innovation Project Quick Reference
 
@@ -96,12 +101,40 @@ When generating proposals:
 4. Track Record
 5. Topicality
 
+## BFH E-Learning Förderprogramm Quick Reference
+
+| Parameter | Value |
+|-----------|-------|
+| Funding Pool | CHF 100,000/year (total) |
+| Typical Grant | CHF 10,000 (Stundengutschriften) |
+| Course Requirement | Min. 2 ECTS |
+| Required Tools | Moodle, Kaltura |
+| Deadlines | 30 April (2025), 31 July (future) |
+| Output Requirement | OER publication + presentation |
+
+**Hourly Rates:**
+
+| Position | Rate (CHF/hr) |
+|----------|---------------|
+| Dozierende | 104 |
+| Wissenschaftliche Mitarbeitende | 70 |
+| Assistierende | 52 |
+
+**Six Evaluation Criteria:**
+1. Strategy Alignment - Vielfalt, Future Skills, Vernetzung
+2. Didactic Innovation - Novel teaching approaches
+3. Quality Improvement - Better learning outcomes
+4. Sustainability - Long-term usability
+5. Networking - Collaboration between instructors
+6. Transfer Potential - OER and Good Practice character
+
 ## Language
 
 Proposals may be generated in multiple languages depending on the funding program.
 - **SNSF**: English required for economics, STEM, medicine, psychology
 - **Innosuisse**: German, French, Italian, or English
 - **Innocheck**: German, French, Italian, or English
+- **BFH E-Learning**: German only (Swiss orthography, use "ss" not "ß")
 
 Default to the language of the input documents. If unclear, ask the user for preference.
 
@@ -118,3 +151,4 @@ All proposals must:
 
 Successful proposal examples are available in:
 - `_resources/old_proposals/snsf_project/` - Two funded SNSF proposals
+- `_resources/old_proposals/bfh_elearning/` - Funded BFH E-Learning proposal

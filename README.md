@@ -13,17 +13,19 @@ This repository contains Claude Code workflows that assist in creating comprehen
 | [Innocheck](docs/innocheck.md) | `/innocheck` | Innosuisse Innovationsscheck | Markdown/Word |
 | [Innosuisse Project](docs/innosuisse-project.md) | `/innosuisse-project` | Innosuisse Innovation Project | Markdown |
 | [SNSF Project](docs/snsf-project.md) | `/snsf-project` | SNSF Project Funding | LaTeX |
+| [BFH E-Learning](docs/bfh-elearning.md) | `/bfh-elearning` | BFH E-Learning Förderprogramm | Markdown/Word |
 
 ## Quick Comparison
 
-| Aspect | Innocheck | Innosuisse Project | SNSF Project |
-|--------|-----------|-------------------|--------------|
-| **Budget** | CHF 15,000 (fixed) | No max (typ. 500K-2M) | CHF 100K-4M |
-| **Duration** | 6 months | 6-36 months | 1-4 years |
-| **Funding Rate** | 100% | 40-60% | 100% |
-| **Focus** | Feasibility study | Innovation + Value creation | Scientific research |
-| **Partners** | Research + Implementation | Research + Implementation | Academic |
-| **Complexity** | Simple | Medium-High | High |
+| Aspect | Innocheck | Innosuisse Project | SNSF Project | BFH E-Learning |
+|--------|-----------|-------------------|--------------|----------------|
+| **Budget** | CHF 15,000 (fixed) | No max (typ. 500K-2M) | CHF 100K-4M | CHF ~10,000 |
+| **Duration** | 6 months | 6-36 months | 1-4 years | Within funding year |
+| **Funding Rate** | 100% | 40-60% | 100% | 100% (hour credits) |
+| **Focus** | Feasibility study | Innovation + Value creation | Scientific research | Didactic innovation |
+| **Partners** | Research + Implementation | Research + Implementation | Academic | BFH internal |
+| **Complexity** | Simple | Medium-High | High | Simple |
+| **Language** | DE/FR/IT/EN | DE/FR/IT/EN | EN (mostly) | German only |
 
 ## General Usage
 
@@ -63,7 +65,8 @@ grant_proposals/
 ├── outputs/                # Generated proposals
 │   ├── innocheck/
 │   ├── innosuisse_project/
-│   └── snsf_project/
+│   ├── snsf_project/
+│   └── bfh_elearning/
 └── _resources/             # Implementation plans and reference materials
 ```
 
@@ -127,6 +130,12 @@ Each workflow follows a similar pattern:
 | `literature-builder` | Build state-of-research and bibliography |
 | `snsf-budget-planner` | Validate budget against SNSF limits |
 
+### BFH E-Learning-Specific
+| Subagent | Purpose |
+|----------|---------|
+| `didactic-innovation-analyst` | Assess all 6 BFH evaluation criteria |
+| `bfh-elearning-planner` | Create project plan and validate budget |
+
 ## Documentation
 
 Detailed documentation for each workflow is available in the `docs/` folder:
@@ -134,6 +143,7 @@ Detailed documentation for each workflow is available in the `docs/` folder:
 - [Innocheck Workflow](docs/innocheck.md) - Feasibility studies (CHF 15K)
 - [Innosuisse Innovation Project](docs/innosuisse-project.md) - Full R&D projects (CHF 500K-2M)
 - [SNSF Project Funding](docs/snsf-project.md) - Scientific research (CHF 100K-4M)
+- [BFH E-Learning](docs/bfh-elearning.md) - Teaching development grants (CHF ~10K)
 
 ## Adding New Workflows
 
@@ -152,6 +162,7 @@ Workflows support multiple languages where applicable:
 - **SNSF**: English required for economics, STEM, medicine, psychology
 - **Innosuisse**: German, French, Italian, or English
 - **Innocheck**: German, French, Italian, or English
+- **BFH E-Learning**: German only (Swiss orthography)
 
 Output language typically matches the input documents. If unclear, the workflow will ask for preference.
 
@@ -159,4 +170,5 @@ Output language typically matches the input documents. If unclear, the workflow 
 
 - [Innosuisse Official Website](https://www.innosuisse.ch)
 - [SNSF Official Website](https://www.snf.ch)
+- [BFH Virtuelle Akademie](https://virtuelle-akademie.bfh.ch)
 - Reference materials: `_resources/`
