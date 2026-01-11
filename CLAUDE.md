@@ -11,6 +11,7 @@ This repository contains agentic workflows for drafting grant proposals. Each wo
 | `/innocheck` | Innosuisse Innovationsscheck | `innocheck-guidelines` | Markdown/Word |
 | `/innosuisse-project` | Innosuisse Innovation Project | `innosuisse-project-guidelines` | Markdown |
 | `/snsf-project` | SNSF Project Funding | `snsf-guidelines` | LaTeX |
+| `/snsf-agora-rolling` | SNSF Agora Rolling Call | `snsf-agora-guidelines` | Markdown/PDF |
 | `/bfh-elearning` | BFH E-Learning Förderprogramm | `bfh-elearning-guidelines` | Markdown/Word |
 
 ## Project Structure
@@ -49,6 +50,10 @@ When generating proposals:
 - **project-planner** - Designs work packages, Gantt charts, milestones, deliverables
 - **risk-analyst** - Creates risk matrices with mitigation strategies
 - **innosuisse-budget-planner** - Validates 40-60% split and notional rates
+
+### SNSF Agora-Specific
+- **science-communication-analyst** - Analyzes content quality, target audience, communication methods, and impact potential
+- **agora-project-planner** - Validates team composition, creates timelines, and develops budgets
 
 ### BFH E-Learning-Specific
 - **didactic-innovation-analyst** - Assesses all 6 BFH evaluation criteria (strategy, innovation, quality, sustainability, networking, transfer)
@@ -101,6 +106,36 @@ When generating proposals:
 4. Track Record
 5. Topicality
 
+## SNSF Agora Rolling Call Quick Reference
+
+| Parameter | Value |
+|-----------|-------|
+| Funding Range | CHF 5,000 - 50,000 |
+| Duration | Max. 3 years |
+| Submission | Continuous (rolling) |
+| Decision Timeline | Within 4 months |
+| Project Plan | 5 pages max |
+| Language | English only |
+| Platform | mySNF |
+
+**Required Team:**
+- At least 1 Researcher (min. 20% allocation, SNSF Article 10 compliant)
+- At least 1 Agora Specialist (communication/media/education expert)
+
+**Six Evaluation Criteria (equally weighted):**
+1. Content Quality - Sound research, clear messages
+2. Communication Method - Appropriate for target audience, includes dialogue
+3. Team Expertise - Relevant skills for communication project
+4. Feasibility - Realistic timeline and budget
+5. Expected Impact - Quantitative reach + qualitative engagement
+6. Diversity - Inclusive approach, accessibility
+
+**Eligible Budget Categories:**
+- Agora specialists fees
+- External partners
+- Production and materials
+- Communication/publication costs
+
 ## BFH E-Learning Förderprogramm Quick Reference
 
 | Parameter | Value |
@@ -131,7 +166,8 @@ When generating proposals:
 ## Language
 
 Proposals may be generated in multiple languages depending on the funding program.
-- **SNSF**: English required for economics, STEM, medicine, psychology
+- **SNSF Project Funding**: English required for economics, STEM, medicine, psychology
+- **SNSF Agora**: English only
 - **Innosuisse**: German, French, Italian, or English
 - **Innocheck**: German, French, Italian, or English
 - **BFH E-Learning**: German only (Swiss orthography, use "ss" not "ß")
